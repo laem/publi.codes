@@ -70,7 +70,7 @@
 
 - espace: chauffage
   nom: type
-  question: Comment est chauffée votre eau ?
+  question: Comment est chauffez-vous votre eau ?
   formule: 
     une possibilité: 
       choix obligatoire: oui 
