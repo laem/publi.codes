@@ -157,6 +157,7 @@
         - tram
         - vélo
         - à pieds
+  par défaut: voiture . essence ou diesel
   références:
     RATP: 'https://www.ratp.fr/node/2581'
 - espace: transport . mode
@@ -241,6 +242,8 @@
   nom: km parcourus
   période: flexible
   question: Combien de kilomètres parcourez-vous ?
+  format: nombre
+  par défaut: 300
   
       
       
