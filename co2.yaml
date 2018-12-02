@@ -147,13 +147,15 @@
   notes: Attention, il faut vérifier si les chiffres incluent la construction du véhicule lui-même, et pas seulement le carburant.
   formule:
     une possibilité:
-      - voiture
-      - train
-      - métro
-      - bus
-      - tram
-      - vélo
-      - à pieds
+      choix obligatoire: oui
+      possibilités:
+        - voiture
+        - train
+        - métro
+        - bus
+        - tram
+        - vélo
+        - à pieds
   références:
     RATP: https://www.ratp.fr/node/2581
 
