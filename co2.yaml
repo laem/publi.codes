@@ -208,7 +208,7 @@
   nom: TGV
   formule: 0.0032
 - espace: transport . impact par km . train
-  nom: Intercités
+  nom: Intercité
   formule: 0.0118
 - espace: transport . impact par km . train
   nom: TER
