@@ -141,10 +141,11 @@
     lente: 20
     
 - nom: transport
-
 - espace: transport
-  nom: impact par km
-  notes: Attention, il faut vérifier si les chiffres incluent la construction du véhicule lui-même, et pas seulement le carburant.
+  nom: mode
+  notes: >-
+    Attention, il faut vérifier si les chiffres incluent la construction du
+    véhicule lui-même, et pas seulement le carburant.
   formule:
     une possibilité:
       choix obligatoire: oui
@@ -157,44 +158,33 @@
         - vélo
         - à pieds
   références:
-    RATP: https://www.ratp.fr/node/2581
-
-- espace: transport . impact par km
+    RATP: 'https://www.ratp.fr/node/2581'
+- espace: transport . mode
   nom: bus
-  formule: 0.095
-- espace: transport . impact par km
+- espace: transport . mode
   nom: tram
-  formule: 0.0031
-- espace: transport . impact par km
+- espace: transport . mode
   nom: métro
-  formule: 0.0038
-- espace: transport . impact par km
+- espace: transport . mode
   nom: vélo
-  formule: 0
-- espace: transport . impact par km
+- espace: transport . mode
   nom: à pieds
-  formule: 0
-  
-    
-    
-- espace: transport . impact par km
+- espace: transport . mode
   nom: voiture
   formule:
     une possibilité:
       - essence ou diesel
       - électrique
   références:
-    IFP: http://www.smartgrids-cre.fr/index.php?p=vehicules-electriques-bilan-carbone
-    source belge: https://www.delijn.be/fr/overdelijn/organisatie/zorgzaam-ondernemen/milieu/co2-uitstoot-voertuigen.html
-
-- espace: transport . impact par km . voiture
+    IFP: >-
+      http://www.smartgrids-cre.fr/index.php?p=vehicules-electriques-bilan-carbone
+    source belge: >-
+      https://www.delijn.be/fr/overdelijn/organisatie/zorgzaam-ondernemen/milieu/co2-uitstoot-voertuigen.html
+- espace: transport . mode . voiture
   nom: essence ou diesel
-  formule: 0.206 # y compris la production du véhicule ?
-- espace: transport . impact par km . voiture
+- espace: transport . mode . voiture
   nom: électrique
-  formule: 0.015 # voir le calcul global sur la vie
-
-- espace: transport . impact par km
+- espace: transport . mode
   nom: train
   formule:
     une possibilité:
@@ -203,20 +193,55 @@
       - Intercité
       - Transilien
   références:
-    chiffres SNCF: https://www.oui.sncf/aide/calcul-des-emissions-de-co2-sur-votre-trajet-en-train
-
-
-- espace: transport . impact par km . train
+    chiffres SNCF: >-
+      https://www.oui.sncf/aide/calcul-des-emissions-de-co2-sur-votre-trajet-en-train
+- espace: transport . mode . train
   nom: TGV
-  formule: 0.0032
-- espace: transport . impact par km . train
+- espace: transport . mode . train
   nom: Intercité
-  formule: 0.0118
-- espace: transport . impact par km . train
+- espace: transport . mode . train
   nom: TER
-  formule: 0.0292
-- espace: transport . impact par km . train
+- espace: transport . mode . train
   nom: Transilien
-  formule: 0.0064
+
+- espace: transport
+  nom: impact par km
+  formule: 
+    variations: 
+      - si: mode = voiture . essence ou diesel
+        alors: 0.206
+      - si: mode = voiture . électrique
+        alors: 0.015
+      - sinon: 0
+      
+ #mécanisme correspondance à ajouter
+ #formule: 
+  #  correspondance: 
+   #   sur: mode
+    #  table: 
+     #   voiture . essence ou diesel: 0.206
+      #  voiture . électrique: 0.015
+       # bus: 0.095
+        #train . Intercité:  0.0118
+        #train . TER; 0.0292
+        #train . transilien: 0.0064
+        #train . TGV: 0.0032
+        #métro: 0.0038
+        #tram: 0.0031
+        #vélo: 0
+        #à pieds: 0
+        
+- espace: transport
+  nom: impact 
+  période: flexible
+  formule: impact par km * km parcourus
   
+
+- espace: transport
+  nom: km parcourus
+  période: flexible
+  question: Combien de kilomètres parcourez-vous ?
+  
+      
+      
   
