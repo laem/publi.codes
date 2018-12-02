@@ -1,8 +1,4 @@
-# espace de nom implicite : douche 
-# non bloquant : 
-# - période: semaine
-# bloquant : 
-# - ?
+
 
 - nom: douche
   icônes: 🚿
@@ -143,3 +139,76 @@
     expresse: 5
     moyenne: 10
     lente: 20
+    
+
+
+- espace: transport
+  nom: impact par km
+  notes: Attention, il faut vérifier si les chiffres incluent la construction du véhicule lui-même, et pas seulement le carburant.
+  formule:
+    une possibilité:
+      - voiture
+      - train
+      - métro
+      - bus
+      - tram
+      - vélo
+      - à pied
+  références:
+    RATP: https://www.ratp.fr/node/2581
+
+- espace: transport . impact par km
+  nom: bus
+  formule: 0.095
+- espace: transport . impact par km
+  nom: tram
+  formule: 0.0031
+- espace: transport . impact par km
+  nom: métro
+  formule: 0.0038
+  
+    
+    
+- espace: transport . impact par km
+  nom: voiture
+  formule:
+    une possibilité:
+      - essence ou diesel
+      - électrique
+  références:
+    IFP: http://www.smartgrids-cre.fr/index.php?p=vehicules-electriques-bilan-carbone
+    source belge: https://www.delijn.be/fr/overdelijn/organisatie/zorgzaam-ondernemen/milieu/co2-uitstoot-voertuigen.html
+
+- espace: transport . impact par km . voiture
+  nom: essence ou diesel
+  formule: 0.206 # y compris la production du véhicule ?
+- espace: transport . impact par km . voiture
+  nom: électrique
+  formule: 0.015 # voir le calcul global sur la vie
+
+- espace: transport . impact par km
+  nom: train
+  formule:
+    une possibilité:
+      - TGV
+      - TER
+      - Intercité
+      - Transilien
+  références:
+    chiffres SNCF: https://www.oui.sncf/aide/calcul-des-emissions-de-co2-sur-votre-trajet-en-train
+
+
+- espace: transport . impact par km . train
+  nom: TGV
+  formule: 0.0032
+- espace: transport . impact par km . train
+  nom: Intercités
+  formule: 0.0118
+- espace: transport . impact par km . train
+  nom: TER
+  formule: 0.0292
+- espace: transport . impact par km . train
+  nom: Transilien
+  formule: 0.0064
+  
+  
