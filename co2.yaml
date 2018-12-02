@@ -208,9 +208,9 @@
   nom: impact par km
   formule: 
     variations: 
-      - si: mode = voiture . essence ou diesel
+      - si: mode = 'voiture . essence ou diesel'
         alors: 0.206
-      - si: mode = voiture . électrique
+      - si: mode = 'voiture . électrique'
         alors: 0.015
       - sinon: 0
       
