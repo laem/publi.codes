@@ -213,6 +213,20 @@
         alors: 0.206
       - si: mode = 'voiture . électrique'
         alors: 0.015
+      - si: mode = 'train . Intercité'
+        alors: 0.0118
+      - si: mode = 'train . TGV'
+        alors: 0.0032
+      - si: mode = 'train . Transilien'
+        alors:  0.0064
+      - si: mode = 'train . TER'
+        alors:  0.0292
+      - si: mode = 'bus'
+        alors: 0.095
+      - si: mode = 'métro'
+        alors: 0.0038
+      - si: mode = 'tram'
+        alors: 0.0031
       - sinon: 0
       
  #mécanisme correspondance à ajouter
