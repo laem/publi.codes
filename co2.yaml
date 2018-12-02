@@ -236,6 +236,7 @@
   nom: impact 
   période: flexible
   formule: impact par km * km parcourus
+  unité: kgCO2eq
   
 
 - espace: transport
