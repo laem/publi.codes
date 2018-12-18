@@ -1,0 +1,29 @@
+- espace: transport
+  nom: impact par km
+  formule:
+    variations:
+      - si: mode = 'voiture . essence ou diesel'
+        alors: 0.206
+      - si: mode = 'voiture . Ã©lectrique'
+        alors: 0.015
+      - si: mode = 'train . IntercitÃ©'
+        alors: 0.0118
+      - si: mode = 'train . TGV'
+        alors: 0.0032
+      - si: mode = 'train . Transilien'
+        alors: 0.0064
+      - si: mode = 'train . TER'
+        alors: 0.0292
+      - si: mode = 'bus'
+        alors: 0.095
+      - si: mode = 'mÃ©tro'
+        alors: 0.0038
+      - si: mode = 'tram'
+        alors: 0.0031
+      - sinon: 0
+- espace: transport
+  nom: impact
+  pÃ©riode: flexible
+  formule: impact par km * km parcourus
+  unitÃ©: kgCO2eq
+- haha: non
