@@ -358,3 +358,14 @@
   question: Combien de kilomètres parcourez-vous ?
   format: km
   par défaut: 300
+  
+- espace: transport
+  nom: impact de l'avion
+  titre: Mes voyages en avion
+  icnes: 🛫
+
+
+- espace: transport
+  nom: impact de l'avion
+  titre: Mon logement
+  icnes: 🏡
