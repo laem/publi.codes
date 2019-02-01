@@ -4,7 +4,8 @@
 
 - espace: douche
   nom: impact
-  icônes: 🍃
+  titre: Mes douches
+  icônes: 🚿
   période: flexible
   unité: kgCO2eq
   formule: impact par douche * douche . nombre 
@@ -344,7 +345,8 @@
         #à pieds: 0
         
 - espace: transport
-  icônes: 🌫️
+  icônes: 🚶<200d>♀️ 🚲 🚆
+  titre: Mes déplacements quotidiens
   nom: impact 
   période: flexible
   formule: impact par km * km parcourus
