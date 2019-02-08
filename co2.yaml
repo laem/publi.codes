@@ -364,10 +364,10 @@
 - espace: transport
   nom: impact de l'avion
   titre: Mes voyages en avion
-  icnes: 🛫
+  icônes: 🛫
 
 
 - espace: logement
   nom: impact
   titre: Mon logement
-  icnes: 🏡
+  icônes: 🏡
